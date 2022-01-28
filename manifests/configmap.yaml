@@ -7,4 +7,4 @@ data:
     spring.data.mongodb.password=demoapp
 kind: ConfigMap
 metadata:
-  name: mongodb-config
+  name: mongodemo-config
