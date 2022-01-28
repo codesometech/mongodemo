@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodemo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mongodemo
+  template:
+    metadata:
+      labels:
+        app: mongodemo
+        version: v1
+    spec:
+      containers:
+        - name: case
+          image: 963505482519.dkr.ecr.us-east-1.amazonaws.com/mongodemo:latest
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/resources
+          ports:
+            - containerPort: 8080
+      volumes:
+        - name: config-volume
+          configMap:
+            name: mongodemo-config
