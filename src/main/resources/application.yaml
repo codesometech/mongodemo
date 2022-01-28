@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      host: mongodb.default
+      database: demodb
+      username: demoapp
+      password: demoapp
